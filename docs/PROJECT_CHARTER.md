@@ -1,39 +1,60 @@
 # Project Charter
-*Version:* v0.3  
-*Date:* 2026-03-12  
-*Last reviewed:* 2026-03-12
+*Version:* v0.2
+*Date:* 2026-03-28
+*Last reviewed:* 2026-03-28
+
+This charter defines the first-release boundary for Insight Tracker so implementation
+can stay narrow and verifiable.
 
 ## Scope
-### In scope
-- a reusable repo layout for Codex-first greenfield projects
-- human-facing guidance for planning, implementation, review, and handoff
-- versioned prompt, eval, schema, and automation scaffolding
-- lightweight verification that proves the template is internally consistent
+### In Scope For The First Release
+- Create and reopen a lightweight event context for a meetup, coffee chat, hackathon,
+  or similar live interaction.
+- Capture one quick fragment for that event, starting with text and leaving room for
+  mocked voice, photo, or link inputs while the contracts are established.
+- Process a capture into a suggested insight and a suggested follow-up action.
+- Let the user review, edit, confirm, and persist the structured result while keeping
+  it linked to the raw capture.
+- Keep the experience mobile-friendly enough for live-event use.
 
-### Out of scope for now
-- shipping full framework starter apps for every stack
-- bundling deployment infrastructure for every cloud or hosting provider
-- automating complex multi-agent orchestration by default
+### Out Of Scope For Now
+- Full calendar sync, in-app calendar management, or deep email workflows
+- CRM-style contact management, team collaboration, or advanced autonomous agents
+- Long ambient recording as a core workflow
+- Heavy tagging systems, analytics dashboards, or broad personal knowledge management
+- Any attempt to replace Notes, Notion, WhatsApp, Google Calendar, or Outlook as a
+  general-purpose tool
 
-## Primary users
-- solo builders or small teams starting a new project with Codex as a daily tool
-- teams that want AI-friendly repos without sacrificing human readability
+## Primary Users
+- An intentional professional attendee such as a founder, PM, consultant, researcher,
+  or career-transition professional who wants better follow-through from live events
+- A solo early adopter who values lightweight capture and review more than automation
+  breadth
 
-## Success metrics
-- a new project can be bootstrapped from this template in under one working session
-- contributors can identify the repo's source of truth in under 10 minutes
-- prompt or workflow changes are reflected in docs and verification, not only chat
+## Success Metrics
+- A user can complete the capture-to-review flow end to end without manual database
+  edits.
+- The app stores both the raw capture and the reviewed structured output with a clear
+  link between them.
+- At least one real or realistic event scenario produces a confirmed insight and
+  follow-up worth keeping instead of discarding.
 
 ## Risks
-- the template becomes too generic and stops making useful decisions
-- the lightweight Python verification defaults are mistaken for the downstream product
-  stack
-- docs drift away from how real contributors actually use the repo
+- The capture flow may still feel too slow or too interruptive during real events.
+- AI suggestions may be generic or noisy enough that review feels like cleanup work
+  instead of leverage.
+- Scope can drift into calendar, CRM, or note-taking replacement behavior before the
+  core loop is proven.
 
-## Delivery approach
-- Start with the smallest useful template that carries strong boundaries.
-- Prefer durable repo conventions over one-off chat advice.
-- Keep docs, prompts, evals, and tests evolving together.
+## Delivery Approach
+- Start with one thin slice: event creation, text capture, structured suggestion,
+  review, confirmation, and persistence.
+- Keep the architecture single-user and simple until the core workflow proves useful.
+- Defer `.ics` export, real voice/photo processing, and deeper integrations if they
+  threaten the capture-to-review slice.
+- Keep docs, code, prompts, evals, and tests aligned in the same diff when behavior
+  changes.
 
-## Next in fast path
-Open `AGENTS.md`, then `docs/AI_DEV_WORKFLOW.md`.
+## Next In Fast Path
+Open `work/items/PRODUCT-001-core-capture-review-flow.md` and implement the happy path
+described there against the stack choices in `docs/TECH_STACK_SELECTION.md`.
