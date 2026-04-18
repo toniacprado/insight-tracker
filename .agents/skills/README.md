@@ -1,12 +1,10 @@
 # Repo Skills
-*Version:* v0.1  
-*Date:* 2026-03-11  
-*Last reviewed:* 2026-03-11
+*Version:* v0.2  
+*Date:* 2026-04-18  
+*Last reviewed:* 2026-04-18
 
-This directory stores project skills for repeatable Codex workflows.
+This directory stores small, optional skills for repeatable Codex workflows.
 
-Current starter skills:
-- `codex-task-slice`: implement one thin, verifiable task slice
-- `codex-review`: run a risk-first review pass with explicit findings
-
-Use these as templates for future project-specific skills.
+Current skills:
+- `codex-task-slice`: implement one focused product slice with explicit verification
+- `codex-review`: run a correctness-first review pass with security awareness

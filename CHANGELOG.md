@@ -1,7 +1,9 @@
 # Changelog
-*Version:* v0.1
-*Date:* 2026-03-28
-*Last reviewed:* 2026-03-28
+*Version:* v0.2
+*Date:* 2026-04-18
+*Last reviewed:* 2026-04-18
 
 ## Unreleased
-- Initialized Insight Tracker from the Codex-first repo template.
+- Removed legacy scaffolding from the repo contract.
+- Consolidated overlapping AI guidance into a smaller Codex-first instruction set.
+- Reframed security, privacy, and human review as core product design constraints.

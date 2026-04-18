@@ -1,14 +1,15 @@
 # Work Items
-*Version:* v0.4  
-*Date:* 2026-03-11  
-*Last reviewed:* 2026-03-11
+*Version:* v0.5  
+*Date:* 2026-04-18  
+*Last reviewed:* 2026-04-18
 
 Store one detailed file per meaningful task here.
 
-Use `system/templates/work_item.md` and keep these fields current:
+Each work item should keep these fields current:
 - status
+- owner
 - updated
 - verification
 - blockers
 - next action
-- important learnings or follow-up notes
+- key learnings or follow-up notes

@@ -6,17 +6,16 @@
 - [ ] `ruff format .`
 - [ ] `ruff check .`
 - [ ] `pytest -q`
-- [ ] `python scripts/run_prompt_evals.py`
-- [ ] `python scripts/newcomer_smoke_test.py`
+- [ ] `python scripts/check_repo.py`
 
 ## Contract check
-- [ ] docs or contracts updated if behavior changed
-- [ ] prompt or eval assets updated if model behavior changed
-- [ ] model policy or guardrails updated if AI behavior changed
-- [ ] task state updated in `work/` if the work spans multiple steps
+- [ ] docs updated if behavior changed
+- [ ] tests updated if behavior changed
+- [ ] `work/` updated if the task spans multiple steps
+- [ ] security or data-flow impact reviewed
 - [ ] risks or follow-up items called out below
 
 ## Review notes
 - behavior changed:
-- docs/contracts updated:
+- docs updated:
 - risks or follow-up items:

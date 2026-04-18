@@ -1,66 +1,35 @@
 # Repo Structure
-*Version:* v0.6  
+*Version:* v1.0  
 *Date:* 2026-04-18  
 *Last reviewed:* 2026-04-18
 
-This template keeps human intent, AI contracts, task state, code, and generated outputs
-in different places on purpose.
+Insight Tracker keeps a small number of first-class directories on purpose.
 
 ```text
 repo/
   README.md
-  CHANGELOG.md
-  CONTRIBUTING.md
   AGENTS.md
-  AGENTS.local.md.example
-  AGENTS.override.md.example
-  .codex/
-  .agents/
-  codex/
-  .editorconfig
-  .env.example
-  .gitignore
-  .pre-commit-config.yaml
-  .github/
   docs/
   work/
-  system/
-  prompts/
-  evals/
   src/
   tests/
   scripts/
+  .codex/
+  .agents/
   runtime/
 ```
 
-## Boundary guidance
-- `docs/` for intent, plans, decisions, onboarding, prompting guidance, and policy
-- `work/` for the active task list, durable learnings, detailed work items, and next-step tracking
-- `.codex/` for shared Codex configuration examples and environment notes
-- `.agents/skills/` for reusable Codex skills that capture repeatable workflows
-- `codex/rules/` for Codex execution-policy rule scaffolding
-- `system/` for reusable schemas, templates, prompts, and policy assets
-- `prompts/` for runtime prompt assets used by the product
-- `evals/` for representative eval cases, rubrics, and grading notes
-- `src/` for implementation
-- `tests/` for deterministic behavior and regression coverage
-- `scripts/` for idempotent repo utilities and automation helpers
-- `runtime/` for generated, rebuildable artifacts
-
-## Current project shape
-- The canonical product path is a TypeScript web app that will be added in the root tree.
-- The current repo still carries template-maintenance Python checks until the product
-  scaffold replaces them with stronger app-native verification.
-- Scratch worktrees or experiments from other tools are not part of the canonical
-  structure and should not live under tracked source paths.
+## Boundary guide
+- `docs/` holds product intent, engineering rules, security policy, and repo workflow.
+- `work/` holds active tasks, detailed work items, and durable learnings.
+- `src/` holds implementation code.
+- `tests/` holds deterministic verification.
+- `scripts/` holds small repo utilities such as health checks.
+- `.codex/` holds shared Codex configuration.
+- `.agents/skills/` holds optional repeatable Codex workflows.
+- `runtime/` holds rebuildable outputs only.
 
 ## Practical rules
-- If a human or AI must repeatedly read it to stay aligned, it belongs in the repo.
-- If work should survive beyond the current session, it belongs in `work/`.
-- If Codex should share environment defaults with the team, document them in `.codex/`.
-- If one subtree genuinely needs different rules, use `AGENTS.override.md` there.
-- If the application sends it to a model at runtime, it belongs in `prompts/` or
-  application code.
-- If a model behavior matters, its evaluation must live in `evals/`.
-- If an output can be regenerated, keep it out of canonical paths and put it in
-  `runtime/`.
+- If the information should survive the current chat, put it in `docs/` or `work/`.
+- If the file exists only to preserve old scaffolding, delete it.
+- If an output can be regenerated, keep it out of canonical source paths.

@@ -1,5 +1,5 @@
 # Decisions Log
-*Version:* v0.3
+*Version:* v0.4
 *Date:* 2026-04-18
 *Last reviewed:* 2026-04-18
 
@@ -32,8 +32,7 @@ Use this file to record meaningful product, architecture, or workflow decisions.
 
 ### 2026-03-28 - Initial implementation will be a TypeScript web app
 - Decision: build the product as a mobile-friendly TypeScript web app with a single
-  web stack, while keeping the inherited Python toolchain only as temporary repo
-  maintenance.
+  web stack, while keeping lightweight Python repo tooling temporarily for local checks.
 - Why: one TypeScript codebase minimizes coordination cost across UI and server logic
   while the product is still narrow and moving quickly.
 - Alternatives considered: a Python-first application, a docs-only holding phase, or
@@ -46,11 +45,30 @@ Use this file to record meaningful product, architecture, or workflow decisions.
 ### 2026-04-18 - The repository will keep one canonical Codex workflow
 - Decision: remove secondary-tool compatibility artifacts and treat the root
   repository tree as the only canonical implementation path.
-- Why: the abandoned Claude worktree created a second apparent source of truth and
-  blurred where real product work should happen.
-- Alternatives considered: keeping a compatibility shim or migrating the divergent
-  scratch worktree into the canonical repo without re-review.
+- Why: abandoned scratch work created a second apparent source of truth and blurred
+  where real product work should happen.
+- Alternatives considered: keeping a compatibility shim or migrating scratch work into
+  the canonical repo without re-review.
 - Consequences: shared repo guidance now points to `AGENTS.md`, `docs/`, and `work/`
-  only; abandoned scratch worktrees are reference material at most, not canonical code.
+  only; scratch worktrees are reference material at most, not canonical code.
 - Revisit when: the team intentionally adopts a second tool and can support that
   workflow without fragmenting the repository contract.
+
+### 2026-04-18 - The repo will prefer a lean instruction surface
+- Decision: remove legacy scaffolding until the product actually needs more structure.
+- Why: duplicated guidance was increasing maintenance cost and making the real entry
+  points harder to identify.
+- Alternatives considered: keeping the old structure but marking most files as optional.
+- Consequences: the repo now centers on product docs, security guardrails, task
+  tracking, and a small verification layer.
+- Revisit when: the product introduces real runtime prompt assets or more complex agent
+  workflows that justify added structure.
+
+### 2026-04-18 - Security and review are part of the product contract
+- Decision: treat security, privacy, and human review as core product constraints in v1.
+- Why: event captures can easily include sensitive context, and trust will collapse if
+  the system feels opaque or promiscuous with data.
+- Alternatives considered: deferring security policy until after the app scaffold exists.
+- Consequences: external provider boundaries must stay explicit, local-first workflows
+  are preferred, and any broader data exposure needs deliberate review.
+- Revisit when: real integrations or hosted deployment requirements change the risk model.

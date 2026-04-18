@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - "codex/**"
+      - "codex*"
   pull_request:
 
 jobs:
@@ -40,8 +40,5 @@ jobs:
       - name: Pytest
         run: pytest -q
 
-      - name: Prompt and eval checks
-        run: python scripts/run_prompt_evals.py
-
-      - name: Newcomer smoke checks
-        run: python scripts/newcomer_smoke_test.py
+      - name: Repo contract checks
+        run: python scripts/check_repo.py

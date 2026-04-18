@@ -1,7 +1,7 @@
 # Project Manifesto
-*Version:* v0.2
-*Date:* 2026-03-28
-*Last reviewed:* 2026-03-28
+*Version:* v0.3
+*Date:* 2026-04-18
+*Last reviewed:* 2026-04-18
 
 Insight Tracker exists because valuable event insights decay almost immediately.
 People leave meetups, hackathons, coffee chats, and networking conversations with
@@ -28,6 +28,8 @@ capture is scattered and review is too much work.
 - The capture flow must feel lighter than opening a general-purpose note-taking system.
 - Reviewed outputs must stay traceable to the raw capture they came from.
 - The product uses explicit user-initiated capture, not ambient always-on recording.
+- Security and privacy are product features: sensitive event context should stay narrow,
+  reviewable, and intentional.
 
 ## Anti-Goals
 - Do not build a general-purpose notes app, calendar, or CRM replacement.
@@ -53,3 +55,5 @@ capture is scattered and review is too much work.
   proves useful.
 - Privacy and trust matter: captures should be intentional, reviewable, and
   user-controlled.
+- External model or API usage must stay behind explicit boundaries that are easy to
+  audit and easy to disable.

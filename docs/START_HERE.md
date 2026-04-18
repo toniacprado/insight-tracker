@@ -1,39 +1,26 @@
 # Start Here
-*Version:* v0.3
+*Version:* v1.0
 *Date:* 2026-04-18
 *Last reviewed:* 2026-04-18
 
-This is the shortest useful path for contributors working on Insight Tracker's first
-real product slice.
+This is the shortest useful path for working in Insight Tracker.
 
-## Read First
-1. `docs/PROJECT_MANIFESTO.md`
-2. `docs/PROJECT_CHARTER.md`
-3. `docs/TECH_STACK_SELECTION.md`
-4. `work/ACTIVE_TASKS.md`
-5. The current task file in `work/items/`
+## Read first
+1. `README.md`
+2. `docs/PROJECT_MANIFESTO.md`
+3. `docs/PROJECT_CHARTER.md`
+4. `docs/GUARDRAILS.md`
+5. `work/ACTIVE_TASKS.md`
+6. the relevant file in `work/items/`
 
-## Current Recommended Workflow
-1. Treat the manifesto and charter as scope guardrails before making implementation
-   decisions.
-2. Start from `PRODUCT-001` in `work/items/PRODUCT-001-core-capture-review-flow.md`
-   unless a newer task has replaced it in `work/ACTIVE_TASKS.md`.
-3. Record any meaningful product or architecture change in `docs/DECISIONS.md`.
-4. Keep implementation in the root repository tree; do not treat scratch worktrees or
-   abandoned side experiments as canonical source.
-5. Keep docs, work items, tests, and implementation aligned in the same diff.
+## Default work loop
+1. Confirm the product goal and scope before editing.
+2. Load only the smallest relevant context from `docs/CONTEXT_ENGINEERING.md`.
+3. Implement one thin slice.
+4. Update docs, tests, and `work/` in the same diff when behavior changes.
+5. Run verification and record any remaining gap honestly.
 
-## Useful Reference Docs
-- `AGENTS.md`
-- `docs/CONTEXT_ENGINEERING.md`
-- `docs/GIT_WORKFLOW.md`
-- `docs/CODEX_PROMPTING.md`
-- `docs/TASK_MANAGEMENT.md`
-- `docs/BOOTSTRAP_NEXT_STEPS.md` for the inherited maintenance commands
-
-## Current State
-- The project definition is concrete enough to start implementation without relying on
-  chat memory.
-- The product stack is provisionally a single TypeScript web app.
-- The next success condition is a working capture-to-review flow that stores both the
-  raw capture and the reviewed structured output without manual database edits.
+## Current target
+- The active implementation slice is `PRODUCT-001`.
+- The canonical implementation path is the root repository tree.
+- Security, privacy, and human review are part of the product definition, not optional polish.

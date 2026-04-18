@@ -1,25 +1,20 @@
 # Contributing
-*Version:* v0.8  
-*Date:* 2026-03-12  
-*Last reviewed:* 2026-03-12
+*Version:* v1.0  
+*Date:* 2026-04-18  
+*Last reviewed:* 2026-04-18
 
-This template is maintained like a product. Changes should improve clarity, reduce
-guesswork, and keep the repo easy for both humans and Codex to operate.
+Insight Tracker is maintained as a product repo with Codex as the primary coding
+partner. Keep changes small, reviewable, and grounded in the repo rather than chat.
 
 ## Preferred workflow
-1. Read `docs/START_HERE.md`, `docs/HUMAN_OPERATING_GUIDE.md`, `docs/CODEX_PROMPTING.md`,
-   and `AGENTS.md`.
-2. Tighten the spec first if intent, scope, or boundaries are unclear.
-3. Update `work/` before or during non-trivial multi-step work.
-4. Make the smallest useful change that improves the template.
-5. Update linked docs, prompts, evals, model or guardrail policy, and tests in the same
-   diff when needed.
-6. Run the repo quality gates and report any gaps honestly.
+1. Read `README.md`, `docs/START_HERE.md`, and `AGENTS.md`.
+2. Tighten the spec first if scope or intent is unclear.
+3. Update `work/` for non-trivial or multi-step work.
+4. Make the smallest useful change that moves the product forward.
+5. Update docs, tests, and task state in the same diff when behavior changes.
+6. Run verification and report gaps honestly.
 
 ## Local setup
-The steps below are only for the template maintenance stack. They do not imply that the
-downstream project itself should be Python.
-
 macOS/Linux:
 
 ```bash
@@ -40,22 +35,16 @@ python -m pip install -e ".[dev]"
 pre-commit install
 ```
 
-## Required verification
+## Verification
 ```text
 ruff format .
 ruff check .
 pytest -q
-python scripts/run_prompt_evals.py
-python scripts/newcomer_smoke_test.py
+python scripts/check_repo.py
 ```
 
-Use `python` from the active venv; if `python` is unavailable before activation, use
-`python3` to create/activate the environment first.
-
 ## Change expectations
-- Behavior changes require docs or contract updates.
-- Prompt changes require linked eval updates.
-- Model changes require model-policy review and eval reruns.
-- Guardrail changes require policy updates.
-- Meaningful task progress should be reflected in `work/`.
+- Product behavior changes require updated docs and tests.
+- Security or data-flow changes require `docs/GUARDRAILS.md` review.
+- Meaningful progress must be reflected in `work/`.
 - Material edits to Markdown guidance files require updated version and review stamps.

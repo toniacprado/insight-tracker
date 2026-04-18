@@ -4,8 +4,8 @@ build-backend = "hatchling.build"
 
 [project]
 name = "insight-tracker"
-version = "0.7.0"
-description = "AI development repo template with Codex-first docs, prompts, evals, guardrails, and verification scaffolding."
+version = "0.1.0"
+description = "Codex-first working repository for the Insight Tracker product."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = []
@@ -18,7 +18,7 @@ dev = [
 ]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/repo_template"]
+packages = ["src/insight_tracker_repo"]
 
 [tool.ruff]
 line-length = 100

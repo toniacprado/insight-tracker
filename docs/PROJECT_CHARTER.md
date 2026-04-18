@@ -1,7 +1,7 @@
 # Project Charter
-*Version:* v0.2
-*Date:* 2026-03-28
-*Last reviewed:* 2026-03-28
+*Version:* v0.3
+*Date:* 2026-04-18
+*Last reviewed:* 2026-04-18
 
 This charter defines the first-release boundary for Insight Tracker so implementation
 can stay narrow and verifiable.
@@ -38,6 +38,8 @@ can stay narrow and verifiable.
   link between them.
 - At least one real or realistic event scenario produces a confirmed insight and
   follow-up worth keeping instead of discarding.
+- Sensitive capture data stays narrow, intentional, and reviewable rather than flowing
+  through broad or implicit external integrations.
 
 ## Risks
 - The capture flow may still feel too slow or too interruptive during real events.
@@ -45,6 +47,7 @@ can stay narrow and verifiable.
   instead of leverage.
 - Scope can drift into calendar, CRM, or note-taking replacement behavior before the
   core loop is proven.
+- Security shortcuts could undermine trust before the product proves value.
 
 ## Delivery Approach
 - Start with one thin slice: event creation, text capture, structured suggestion,
@@ -52,9 +55,5 @@ can stay narrow and verifiable.
 - Keep the architecture single-user and simple until the core workflow proves useful.
 - Defer `.ics` export, real voice/photo processing, and deeper integrations if they
   threaten the capture-to-review slice.
-- Keep docs, code, prompts, evals, and tests aligned in the same diff when behavior
-  changes.
-
-## Next In Fast Path
-Open `work/items/PRODUCT-001-core-capture-review-flow.md` and implement the happy path
-described there against the stack choices in `docs/TECH_STACK_SELECTION.md`.
+- Keep docs, code, and tests aligned in the same diff when behavior changes.
+- Keep external provider boundaries explicit and small enough to reason about.

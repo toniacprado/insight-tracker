@@ -1,11 +1,11 @@
 # Example scoped override for a specialized subtree.
-# Copy this file into a deeper directory as `AGENTS.override.md` when that area truly
-# needs different rules from the repo root.
+# Copy this file into a deeper directory as `AGENTS.override.md` only when that area
+# truly needs different rules from the repo root.
 
 ## Example uses
-- prompt-heavy directories that require extra eval discipline
-- infrastructure directories with stricter safety checks
+- higher-risk infrastructure areas
 - generated-code areas with special editing rules
+- subtrees that need stricter review or verification rules
 
 ## Example scoped rules
 - Treat this subtree as higher-risk than the repo default.

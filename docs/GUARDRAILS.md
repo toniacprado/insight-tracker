@@ -1,41 +1,44 @@
 # Guardrails
-*Version:* v0.4  
-*Date:* 2026-03-11  
-*Last reviewed:* 2026-03-11
+*Version:* v1.0  
+*Date:* 2026-04-18  
+*Last reviewed:* 2026-04-18
 
-This file defines the operational guardrails for AI-assisted work in the repo.
+This file defines the security, privacy, and AI-safety boundaries for the repo and the
+product.
 
 ## Core rule
-Keep the agent as capable as needed, but no more capable than the task requires.
+Keep the system as capable as needed, but no more capable than the task requires.
 
-## Default boundaries
-- read access is broadly allowed inside the repo
-- writes should stay scoped to the task and the workspace
-- destructive actions require explicit human approval
-- external network use should stay off by default and be justified when enabled
-- model or automation changes that affect user-facing behavior require reviewable docs
-  and eval updates
+## Default posture
+- local-first by default
+- network off by default
+- narrow file writes
+- explicit human approval before destructive or externally visible actions
+- no secrets or private data in source, fixtures, or logs
 
-## Human-in-the-loop triggers
+## Data handling
+- Treat event captures as potentially sensitive user data.
+- Keep raw captures, derived suggestions, and review history traceable and auditable.
+- Do not send user data to external services unless the boundary is explicit and reviewed.
+- Redact or avoid logging sensitive content when debugging.
+
+## Model and automation policy
+- User-facing AI behavior must stay reviewable and reversible.
+- Validate model outputs before they become writes, commands, or trusted records.
+- Keep external provider behavior behind explicit interfaces and contracts.
+- Do not hide risky autonomous behavior behind convenience abstractions.
+
+## Human review triggers
 Require explicit human review before:
 - deleting or overwriting important data
+- enabling broader network access
+- introducing a new external model or data processor
 - broad dependency or environment changes
-- enabling wider network access
-- changing model defaults for user-facing behavior
-- automated external sends or publication
-- any work touching sensitive data or regulated workflows
+- automated external sends, syncs, or publication
+- any workflow that touches sensitive or regulated data
 
-## Runtime AI safety reminders
-If the downstream product uses models directly:
-- constrain tools and permissions as tightly as possible
-- validate model outputs before using them as commands or writes
-- keep structured outputs explicit when code depends on exact fields
-- log enough context to debug failures without leaking secrets
-- plan for recovery when the model is wrong or unavailable
-
-## Repo-level policy assets
-- `docs/DATA_POLICY.md`
-- `docs/MODEL_POLICY.md`
-- `system/policies/tool_risk_matrix.md`
-- `system/automations/policy.md`
-- `system/automations/approvals.md`
+## Runtime design reminders
+- Prefer typed boundaries and explicit schemas.
+- Keep permission scopes tight.
+- Plan for model failure, provider outage, and bad output.
+- Make it easy to inspect what data moved where and why.

@@ -1,10 +1,10 @@
 # Source Directory
-*Version:* v0.2  
-*Date:* 2026-03-11  
-*Last reviewed:* 2026-03-11
+*Version:* v0.3  
+*Date:* 2026-04-18  
+*Last reviewed:* 2026-04-18
 
-Put implementation code here.
+Put product implementation code here.
 
-This template includes a tiny `repo_template` package only so the default Python
-verification workflow is real. Downstream projects should replace or rename it once the
-real product structure is known.
+The current package under `src/` is only a minimal repo package so local Python
+tooling stays installable until the real app scaffold lands. Replace it with the
+product codebase as `PRODUCT-001` starts taking shape.

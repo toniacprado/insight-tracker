@@ -50,7 +50,7 @@ body:
         - ruff format .
         - ruff check .
         - pytest -q
-        - python scripts/run_prompt_evals.py
+        - python scripts/check_repo.py
     validations:
       required: true
 

@@ -1,7 +1,7 @@
 # Work Directory
-*Version:* v0.4  
-*Date:* 2026-03-11  
-*Last reviewed:* 2026-03-11
+*Version:* v0.5  
+*Date:* 2026-04-18  
+*Last reviewed:* 2026-04-18
 
 Use this directory to keep task state visible across chats, sessions, and teammates.
 

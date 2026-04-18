@@ -1,17 +1,15 @@
 # Copilot Instructions
-*Version:* v0.4  
-*Date:* 2026-03-11  
-*Last reviewed:* 2026-03-11
+*Version:* v1.0  
+*Date:* 2026-04-18  
+*Last reviewed:* 2026-04-18
 
-Codex desktop is the primary AI coding environment for this repo. If you are working
-through GitHub Copilot or another editor agent, follow the same repo contracts and
-defer to `AGENTS.md` plus the docs it references.
+Codex is the primary coding environment for this repo. If you work through Copilot or
+another editor agent, follow the same local repo contract.
 
 ## Non-negotiables
 - Read `AGENTS.md` first.
-- Work spec-first.
 - Keep changes small and verifiable.
-- Update docs, prompts, evals, tasks, and tests in the same diff when behavior changes.
-- Prefer repo-owned instructions over hidden chat context.
-- Respect `docs/GUARDRAILS.md` and `docs/MODEL_POLICY.md` for AI-related changes.
+- Prefer repo files over hidden chat context.
+- Update docs, tests, and `work/` when behavior changes.
+- Respect `docs/GUARDRAILS.md` for security, privacy, and AI-safety decisions.
 - Never claim verification you did not run.
