@@ -1,7 +1,7 @@
 # Instruction Layering
-*Version:* v0.5  
-*Date:* 2026-03-24  
-*Last reviewed:* 2026-03-24
+*Version:* v0.6  
+*Date:* 2026-04-18  
+*Last reviewed:* 2026-04-18
 
 This file explains how to layer instructions without losing a single source of truth.
 
@@ -13,15 +13,15 @@ Use these layers in order:
 4. nested `AGENTS.override.md` files only when a subtree genuinely needs different rules
 5. user-level Codex config for personal preferences that should not affect the whole repo
 
-## Claude-inspired ideas worth borrowing
-Anthropic's `CLAUDE.md` workflow is good at two things:
-- keeping tool-specific memory in repo files
-- composing instructions from smaller files instead of one giant wall of text
-- encouraging smaller, more targeted context loads instead of broad preloading
+## Layering principle
+Keep one canonical shared entry point for repository rules.
 
-This template borrows the idea, but keeps `AGENTS.md` as the canonical root for shared
-rules, uses `docs/CONTEXT_ENGINEERING.md` as the retrieval policy, and uses `CLAUDE.md`
-only as a compatibility shim.
+That means:
+- `AGENTS.md` is the root instruction layer for shared repo behavior
+- `docs/CONTEXT_ENGINEERING.md` defines retrieval and compaction policy
+- topic docs in `docs/` hold durable workflow and policy details
+- compatibility shims for secondary tools are optional, not canonical, and should be
+  removed if they start to compete with the main instruction path
 
 ## Personal preferences
 Use `AGENTS.local.md.example` as inspiration for personal preferences, but do not treat

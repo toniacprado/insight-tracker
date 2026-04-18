@@ -8,8 +8,8 @@ item_id: PRODUCT-001
 title: Build the core capture-to-review flow
 status: todo
 owner: codex
-updated: 2026-03-28
-next_action: Scaffold the TypeScript web app shell and implement event creation plus one text capture happy path.
+updated: 2026-04-18
+next_action: Scaffold the canonical root-tree TypeScript web app shell and implement event creation plus one text capture happy path.
 blocked_on: none
 ---
 
@@ -34,6 +34,8 @@ blocked_on: none
 ## Progress Log
 - 2026-03-28: work item created during bootstrap to define the first implementation
   slice and verification path.
+- 2026-04-18: repo cleanup re-established the root tree as the only canonical source
+  of truth before app scaffolding begins.
 
 ## Verification
 - Planned unit or integration checks: `pnpm test`
@@ -42,8 +44,8 @@ blocked_on: none
   that raw and reviewed records are both persisted
 
 ## Next Action
-- Scaffold the app shell, persistence schema, and happy-path UI for event creation plus
-  one text capture.
+- Scaffold the root-tree app shell, persistence schema, and happy-path UI for event
+  creation plus one text capture.
 
 ## Notes
 - Voice, photo, and link inputs can stay mocked or stubbed in this slice as long as the

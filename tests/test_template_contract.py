@@ -41,7 +41,6 @@ REQUIRED_FILES = [
     "AGENTS.md",
     "AGENTS.local.md.example",
     "AGENTS.override.md.example",
-    "CLAUDE.md",
     "CONTRIBUTING.md",
     "pyproject.toml",
     ".editorconfig",

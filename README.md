@@ -1,54 +1,46 @@
 # Insight Tracker
 
-Insight Tracker is a mobile-friendly TypeScript web app for intentional professional
-attendees who leave events with scattered fragments instead of usable follow-through.
-It helps users capture quick text notes, links, photos, or short voice snippets during
-or right after live conversations, then turns those fragments into structured insights
-and suggested next actions that a human can review before acting on.
+Insight Tracker is a mobile-first TypeScript web app for people who leave events with
+useful fragments but weak follow-through. The product focuses on one narrow promise:
+capture a quick event note, turn it into a suggested insight and follow-up, then let a
+human review and confirm the result before it becomes trusted output.
 
-## What v1 Is Trying To Prove
-- People will revisit event captures if the product turns raw fragments into clear,
-  reviewable insights instead of another pile of notes.
-- The fastest path to value is a lightweight capture-to-review loop, not a full
-  replacement for notes apps, calendars, or CRMs.
-- Human review is part of the product, not an afterthought.
+## Product focus
+- Fast event capture for meetups, coffee chats, hackathons, and similar live contexts
+- AI-assisted suggestion generation with explicit human review
+- Clear persistence of both the raw capture and the reviewed structured result
 
-## First Release Workflow
-1. Create or open a lightweight event context.
-2. Add one quick capture input.
-3. Process that capture into a suggested insight and follow-up.
-4. Review, edit, and confirm the structured result.
-5. Store both the raw capture and the reviewed output for later retrieval.
+## Current implementation plan
+The canonical implementation path is the root repository tree. The next build slice is
+`PRODUCT-001` in [`work/ACTIVE_TASKS.md`](/Users/toniacprado/Dev/insight-tracker/work/ACTIVE_TASKS.md)
+and [`work/items/PRODUCT-001-core-capture-review-flow.md`](/Users/toniacprado/Dev/insight-tracker/work/items/PRODUCT-001-core-capture-review-flow.md):
 
-## Out Of Scope Right Now
-- Full calendar sync or in-app calendar management
-- CRM-style contact management
-- Email integration
-- Long ambient conversation recording as a core workflow
-- Team collaboration, advanced autonomous agents, or heavy analytics dashboards
-- Replacing Notes, Notion, WhatsApp, Google Calendar, or Outlook as general-purpose tools
+1. Scaffold the TypeScript app in the root tree.
+2. Implement event creation and one text capture flow.
+3. Process the capture into a suggested insight and follow-up.
+4. Review, edit, confirm, and persist the reviewed output.
+5. Add the first app-native test coverage and replace template-only assumptions as the
+   scaffold becomes real.
 
-## Repo Entry Points
-- `docs/START_HERE.md` for the current working path
-- `docs/PROJECT_MANIFESTO.md` for product intent and anti-goals
-- `docs/PROJECT_CHARTER.md` for first-release scope and success criteria
-- `docs/TECH_STACK_SELECTION.md` for the provisional stack and verification path
-- `docs/DECISIONS.md` for project-level decisions and revisit triggers
-- `work/ACTIVE_TASKS.md` for the next implementation slice
+## Repo structure
+- [`docs/START_HERE.md`](/Users/toniacprado/Dev/insight-tracker/docs/START_HERE.md) for the shortest current working path
+- [`docs/PROJECT_MANIFESTO.md`](/Users/toniacprado/Dev/insight-tracker/docs/PROJECT_MANIFESTO.md) for product intent and anti-goals
+- [`docs/PROJECT_CHARTER.md`](/Users/toniacprado/Dev/insight-tracker/docs/PROJECT_CHARTER.md) for first-release scope
+- [`docs/TECH_STACK_SELECTION.md`](/Users/toniacprado/Dev/insight-tracker/docs/TECH_STACK_SELECTION.md) for the selected stack and verification direction
+- [`docs/REPO_STRUCTURE.md`](/Users/toniacprado/Dev/insight-tracker/docs/REPO_STRUCTURE.md) for source-of-truth boundaries
+- [`work/`](/Users/toniacprado/Dev/insight-tracker/work/README.md) for active plan state, work items, and durable learnings
 
-## Contributor Workflow References
+## Contributor workflow references
 - `docs/CODEX_FIRST_HOUR.md` for the shortest orientation path in a fresh session
 - `docs/CODEX_SESSION_STARTER.md` for the recommended Codex prompt structure
 - `docs/CONTEXT_ENGINEERING.md` for the repo's just-in-time context rules
 - `docs/GIT_WORKFLOW.md` for the publish path and branch guidance
-- `scripts/bootstrap_new_project.py` as the original template bootstrap utility; do not
-  rerun it for ongoing Insight Tracker work unless you explicitly intend to reset the
-  repo from the template
+- `scripts/bootstrap_new_project.py` as the original bootstrap utility; do not rerun it
+  for ongoing Insight Tracker work unless you explicitly intend to reset the repo from
+  the template
 
-## Current Status
-The first-pass project definition is in place. The next repo-visible milestone is
-`PRODUCT-001`, which defines the initial capture-to-review implementation slice and
-its verification path.
-
-Until the TypeScript app scaffold exists, the inherited Python maintenance commands in
-`docs/BOOTSTRAP_NEXT_STEPS.md` remain the temporary repo-level checks.
+## Current status
+The repo is back to one canonical workflow: Codex-first guidance, root-tree
+implementation, and no secondary Claude compatibility path. Until the TypeScript app
+exists, the inherited Python maintenance scripts remain the temporary repo checks:
+`python3 scripts/run_prompt_evals.py` and `python3 scripts/newcomer_smoke_test.py`.

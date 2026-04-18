@@ -1,7 +1,7 @@
 # Repo Bootstrap Checklist
-*Version:* v1.3  
-*Date:* 2026-03-28  
-*Last reviewed:* 2026-03-28
+*Version:* v1.4  
+*Date:* 2026-04-18  
+*Last reviewed:* 2026-04-18
 
 Use this checklist immediately after copying this starter into a real repository.
 
@@ -51,7 +51,6 @@ Use this checklist immediately after copying this starter into a real repository
 - Review `codex/rules/default.rules.example` and decide whether to activate project-scoped rules.
 - Ensure CI and local verification commands match the real stack.
 - Make sure `work/ACTIVE_TASKS.md` matches reality before active collaboration starts.
-- Decide whether to keep `CLAUDE.md` as a compatibility shim for Anthropic users.
 
 ## Before calling the repo ready
 - Run the default quality gates successfully.

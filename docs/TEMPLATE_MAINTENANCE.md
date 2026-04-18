@@ -1,7 +1,7 @@
 # Template Maintenance
-*Version:* v1.1  
-*Date:* 2026-03-28  
-*Last reviewed:* 2026-03-28
+*Version:* v1.2  
+*Date:* 2026-04-18  
+*Last reviewed:* 2026-04-18
 
 This file explains what is required to maintain the template itself.
 
@@ -14,7 +14,7 @@ This file explains what is required to maintain the template itself.
 Even without a local Python toolchain, Codex can still:
 - review and improve docs
 - update repo structure and policies
-- maintain `AGENTS.md`, `CLAUDE.md`, and `work/`
+- maintain `AGENTS.md` and `work/`
 - follow the retrieval and compaction rules in `docs/CONTEXT_ENGINEERING.md`
 - inspect files and reason about consistency
 - run lightweight repo-local structural checks through the shell

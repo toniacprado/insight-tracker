@@ -1,7 +1,7 @@
 # Repo Structure
-*Version:* v0.5  
-*Date:* 2026-03-11  
-*Last reviewed:* 2026-03-11
+*Version:* v0.6  
+*Date:* 2026-04-18  
+*Last reviewed:* 2026-04-18
 
 This template keeps human intent, AI contracts, task state, code, and generated outputs
 in different places on purpose.
@@ -14,7 +14,6 @@ repo/
   AGENTS.md
   AGENTS.local.md.example
   AGENTS.override.md.example
-  CLAUDE.md
   .codex/
   .agents/
   codex/
@@ -47,6 +46,13 @@ repo/
 - `tests/` for deterministic behavior and regression coverage
 - `scripts/` for idempotent repo utilities and automation helpers
 - `runtime/` for generated, rebuildable artifacts
+
+## Current project shape
+- The canonical product path is a TypeScript web app that will be added in the root tree.
+- The current repo still carries template-maintenance Python checks until the product
+  scaffold replaces them with stronger app-native verification.
+- Scratch worktrees or experiments from other tools are not part of the canonical
+  structure and should not live under tracked source paths.
 
 ## Practical rules
 - If a human or AI must repeatedly read it to stay aligned, it belongs in the repo.

@@ -20,9 +20,7 @@ Thumbs.db
 # Local env
 .env
 AGENTS.local.md
-CLAUDE.local.md
 .codex/config.local.toml
-.claude/settings.local.json
 
 # Generated runtime outputs
 runtime/*

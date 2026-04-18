@@ -1,7 +1,7 @@
 # Decisions Log
-*Version:* v0.2
-*Date:* 2026-03-28
-*Last reviewed:* 2026-03-28
+*Version:* v0.3
+*Date:* 2026-04-18
+*Last reviewed:* 2026-04-18
 
 Use this file to record meaningful product, architecture, or workflow decisions.
 
@@ -42,3 +42,15 @@ Use this file to record meaningful product, architecture, or workflow decisions.
   integration tests, and Playwright as soon as the app scaffold exists.
 - Revisit when: `PRODUCT-001` exposes a strong reason to split the stack or choose a
   different runtime.
+
+### 2026-04-18 - The repository will keep one canonical Codex workflow
+- Decision: remove secondary-tool compatibility artifacts and treat the root
+  repository tree as the only canonical implementation path.
+- Why: the abandoned Claude worktree created a second apparent source of truth and
+  blurred where real product work should happen.
+- Alternatives considered: keeping a compatibility shim or migrating the divergent
+  scratch worktree into the canonical repo without re-review.
+- Consequences: shared repo guidance now points to `AGENTS.md`, `docs/`, and `work/`
+  only; abandoned scratch worktrees are reference material at most, not canonical code.
+- Revisit when: the team intentionally adopts a second tool and can support that
+  workflow without fragmenting the repository contract.

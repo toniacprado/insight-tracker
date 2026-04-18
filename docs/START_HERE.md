@@ -1,7 +1,7 @@
 # Start Here
-*Version:* v0.2
-*Date:* 2026-03-28
-*Last reviewed:* 2026-03-28
+*Version:* v0.3
+*Date:* 2026-04-18
+*Last reviewed:* 2026-04-18
 
 This is the shortest useful path for contributors working on Insight Tracker's first
 real product slice.
@@ -19,7 +19,9 @@ real product slice.
 2. Start from `PRODUCT-001` in `work/items/PRODUCT-001-core-capture-review-flow.md`
    unless a newer task has replaced it in `work/ACTIVE_TASKS.md`.
 3. Record any meaningful product or architecture change in `docs/DECISIONS.md`.
-4. Keep docs, work items, tests, and implementation aligned in the same diff.
+4. Keep implementation in the root repository tree; do not treat scratch worktrees or
+   abandoned side experiments as canonical source.
+5. Keep docs, work items, tests, and implementation aligned in the same diff.
 
 ## Useful Reference Docs
 - `AGENTS.md`
