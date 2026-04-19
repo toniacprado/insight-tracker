@@ -1,24 +1,25 @@
 # Insight Tracker
 
-Insight Tracker is a secure, human-in-the-loop capture and review app for event
-follow-through. The product is meant for real-world use during meetups, coffee chats,
-hackathons, and similar live contexts where notes are easy to take but hard to turn
-into trustworthy next actions.
+Insight Tracker is a secure, human-in-the-loop capture and review app for live
+professional context. The product is meant for real-world use during meetups, coffee
+chats, hackathons, and similar situations where a quick note or voice memo is easy to
+capture but hard to turn into trustworthy follow-through.
 
 ## Product focus
-- Fast capture while the event context is still fresh
+- Inbox-first capture for text and several-minute audio
 - Structured AI assistance without handing control to the model
-- Clear traceability from raw capture to reviewed output
+- Clear traceability from raw capture and transcript to reviewed output
 - Security and privacy as default design constraints, not later cleanup
+- Access from anywhere through a hosted, authenticated web app
 
 ## Current plan
 The next implementation slice is [`PRODUCT-001`](/Users/toniacprado/Dev/insight-tracker/work/items/PRODUCT-001-core-capture-review-flow.md):
 
-1. Scaffold the root-tree TypeScript web app.
-2. Support event creation and one text capture flow.
-3. Generate a suggested insight and follow-up behind a typed processing boundary.
-4. Require review and confirmation before persistence.
-5. Add app-native tests and keep the data flow narrow, local-first, and auditable.
+1. Scaffold the hosted TypeScript web app shell with magic-link auth.
+2. Support one inbox-first text capture flow before adding audio upload.
+3. Process captures asynchronously into a transcript, one primary insight, and multiple follow-up candidates behind a typed processing boundary.
+4. Require review and confirmation before persistence, while allowing insight-only outcomes and zero-to-many follow-ups.
+5. Keep raw captures private and auditable, then add audio upload and manual archive after the text path is stable.
 
 ## Read first
 - [`docs/START_HERE.md`](/Users/toniacprado/Dev/insight-tracker/docs/START_HERE.md)

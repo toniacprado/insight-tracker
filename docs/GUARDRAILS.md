@@ -1,7 +1,7 @@
 # Guardrails
-*Version:* v1.0  
-*Date:* 2026-04-18  
-*Last reviewed:* 2026-04-18
+*Version:* v1.1  
+*Date:* 2026-04-19  
+*Last reviewed:* 2026-04-19
 
 This file defines the security, privacy, and AI-safety boundaries for the repo and the
 product.
@@ -10,14 +10,14 @@ product.
 Keep the system as capable as needed, but no more capable than the task requires.
 
 ## Default posture
-- local-first by default
-- network off by default
+- private-by-default data flows
+- network and external processing off by default unless the task or product path needs them
 - narrow file writes
 - explicit human approval before destructive or externally visible actions
 - no secrets or private data in source, fixtures, or logs
 
 ## Data handling
-- Treat event captures as potentially sensitive user data.
+- Treat live-context captures as potentially sensitive user data.
 - Keep raw captures, derived suggestions, and review history traceable and auditable.
 - Do not send user data to external services unless the boundary is explicit and reviewed.
 - Redact or avoid logging sensitive content when debugging.

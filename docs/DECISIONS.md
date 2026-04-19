@@ -1,7 +1,7 @@
 # Decisions Log
-*Version:* v0.4
-*Date:* 2026-04-18
-*Last reviewed:* 2026-04-18
+*Version:* v0.5
+*Date:* 2026-04-19
+*Last reviewed:* 2026-04-19
 
 Use this file to record meaningful product, architecture, or workflow decisions.
 
@@ -69,6 +69,67 @@ Use this file to record meaningful product, architecture, or workflow decisions.
 - Why: event captures can easily include sensitive context, and trust will collapse if
   the system feels opaque or promiscuous with data.
 - Alternatives considered: deferring security policy until after the app scaffold exists.
-- Consequences: external provider boundaries must stay explicit, local-first workflows
-  are preferred, and any broader data exposure needs deliberate review.
+- Consequences: external provider boundaries must stay explicit, private-by-default
+  data handling is preferred, and any broader data exposure needs deliberate review.
 - Revisit when: real integrations or hosted deployment requirements change the risk model.
+
+### 2026-04-19 - V1 will be a hosted personal app with simple auth
+- Decision: build v1 as a hosted, single-user or personal-first web app with
+  magic-link authentication instead of a Mac-dependent local workflow.
+- Why: the product needs to be usable away from one machine, especially for reviewing
+  captures and transcripts after the event context has passed.
+- Alternatives considered: making the Mac the primary runtime and exposing only part of
+  the data online, or staying local-first until later.
+- Consequences: the initial app slice now needs auth, hosted persistence, and private
+  storage boundaries from the beginning.
+- Revisit when: local processing becomes a specific privacy requirement strong enough to
+  justify hybrid runtime complexity.
+
+### 2026-04-19 - Capture is inbox-first, not event-first
+- Decision: captures land in an inbox first and can remain unassigned until the user
+  decides how to organize them.
+- Why: forcing event creation at capture time adds friction exactly when the user is
+  least willing to navigate structure.
+- Alternatives considered: requiring an event before each capture or using a rigid
+  session model immediately.
+- Consequences: event or session grouping becomes optional organization layered on top
+  of the core capture-review loop, and the data model must allow zero, one, or many
+  future grouping links.
+- Revisit when: repeated real usage shows a stable grouping model that improves review
+  rather than slowing capture.
+
+### 2026-04-19 - Raw source stays immutable and reviewed output stays editable
+- Decision: retain raw audio and transcripts as immutable source records while making
+  the editable review layer the extracted insight and follow-up set.
+- Why: the product needs auditable source material without inviting users to rewrite
+  transcripts into an uncontrolled second note-taking surface.
+- Alternatives considered: editable transcripts or discarding transcripts after
+  extraction.
+- Consequences: the UI needs a clear separation between source material and reviewed
+  output, and tests should assert that both remain linked.
+- Revisit when: users show a repeated need for transcript correction rather than
+  insight-level editing.
+
+### 2026-04-19 - Follow-up output is multi-candidate and may be empty
+- Decision: each capture can produce one primary insight plus multiple candidate
+  follow-ups, and the reviewed result may keep zero, one, or several follow-ups.
+- Why: live-context captures often suggest several plausible next moves, while some
+  captures are valuable as insight only and should not force an action.
+- Alternatives considered: exactly one follow-up per capture or requiring every
+  confirmed item to include an action.
+- Consequences: the review UI must support selecting, editing, deleting, or adding
+  follow-ups without turning the workflow into a task manager.
+- Revisit when: the candidate volume proves noisy enough that the product needs a
+  tighter default bound.
+
+### 2026-04-19 - Archive remains manual and external storage is not canonical
+- Decision: keep archive or export as a manual user action, with Google Drive as a
+  plausible first external target, but do not make external storage the system of
+  record.
+- Why: archive is useful, but putting Drive on the hot path would add sync complexity,
+  permission risk, and avoidable operational coupling too early.
+- Alternatives considered: automatic archive after review or using Drive as primary
+  storage for raw files.
+- Consequences: the app must own its operational data model and storage, while archive
+  connectors stay optional and explicit.
+- Revisit when: the core capture-review flow is stable and export pressure becomes real.

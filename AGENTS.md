@@ -1,7 +1,7 @@
 # AGENTS.md - Insight Tracker
-*Version:* v2.0  
-*Date:* 2026-04-18  
-*Last reviewed:* 2026-04-18
+*Version:* v2.1  
+*Date:* 2026-04-19  
+*Last reviewed:* 2026-04-19
 
 This repo is designed for Codex-first collaboration on the actual product, not as a
 generic bootstrap template. Keep the instruction surface small, explicit, and durable.
@@ -43,7 +43,7 @@ Load more only when the current step actually needs it.
 - If you materially edit Markdown guidance, update its version/date/review stamps.
 
 ## Security rules
-- Default to local-first, narrow-permission workflows.
+- Default to private-by-default, narrow-permission workflows.
 - Network access stays off unless the task needs it.
 - Ask before destructive actions, external sends, or broader data exposure.
 - Never commit secrets, private user data, or provider credentials.

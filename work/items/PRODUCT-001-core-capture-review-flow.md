@@ -4,27 +4,29 @@ item_id: PRODUCT-001
 title: Build the core capture-to-review flow
 status: todo
 owner: codex
-updated: 2026-04-18
-next_action: Scaffold the secure root-tree TypeScript web app shell and implement event creation plus one text capture happy path.
+updated: 2026-04-19
+next_action: Scaffold the hosted TypeScript web app shell with magic-link auth, inbox capture, and one text-capture review happy path.
 blocked_on: none
 ---
 
 # Build the core capture-to-review flow
 
 ## Summary
-- Implement the first thin slice of Insight Tracker: create an event, submit one quick
-  capture, process it into a suggested insight and follow-up, and let the user review
-  and confirm the result in the UI.
+- Implement the first thin slice of Insight Tracker: sign in, submit one quick capture
+  into an inbox, process it into a transcript, a suggested insight, and multiple
+  follow-up candidates, then let the user review and confirm the result in the UI.
 - Keep this slice narrow enough to prove the product promise without deep integrations
   or production-grade media processing.
-- Keep the first data flow local-first and explicit so security and privacy assumptions
-  stay easy to inspect.
+- Keep the first data flow hosted but explicit so security, privacy, and review
+  boundaries stay easy to inspect.
 
 ## Acceptance Criteria
-- A user can create a basic event context in the app.
-- A user can submit one text capture for that event.
-- The system processes that capture into a suggested insight and a suggested follow-up.
-- The user can review, edit, and confirm the structured result in the UI.
+- A user can sign in through the first supported auth flow.
+- A user can submit one text capture into an inbox without creating an event first.
+- The system processes that capture into normalized source text, a suggested insight,
+  and multiple suggested follow-up candidates.
+- The user can review a read-only source view, edit the insight, and confirm zero, one,
+  or many follow-ups in the UI.
 - The app stores both the raw capture and the reviewed structured output with a clear
   relationship between them.
 - The full happy path works end to end without manual database editing.
@@ -38,6 +40,9 @@ blocked_on: none
   of truth before app scaffolding begins.
 - 2026-04-18: lean repo cleanup removed old scaffolding and elevated security as a
   first-class product constraint.
+- 2026-04-19: product direction shifted from event-first local prototyping to a hosted,
+  inbox-first personal app with async processing, retained transcripts, and optional
+  later grouping.
 
 ## Verification
 - Planned unit or integration checks: `pnpm test`
@@ -46,10 +51,13 @@ blocked_on: none
   that raw and reviewed records are both persisted
 
 ## Next Action
-- Scaffold the root-tree app shell, persistence schema, and happy-path UI for event
-  creation plus one text capture.
+- Scaffold the hosted app shell, auth boundary, persistence schema, and happy-path UI
+  for inbox capture plus one text review flow.
 
 ## Notes
-- Voice, photo, and link inputs can stay mocked or stubbed in this slice as long as the
-  data contracts remain explicit.
-- `.ics` export is intentionally deferred until the core review loop is stable.
+- Audio upload is part of v1 direction, but the first implementation slice should prove
+  the inbox text flow before adding several-minute audio handling.
+- Event or session grouping remains deferred; the first slice should keep captures
+  usable without that structure.
+- Google Drive archive stays manual and should not be put on the operational hot path
+  for this slice.

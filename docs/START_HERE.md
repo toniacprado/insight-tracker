@@ -1,7 +1,7 @@
 # Start Here
-*Version:* v1.0
-*Date:* 2026-04-18
-*Last reviewed:* 2026-04-18
+*Version:* v1.1
+*Date:* 2026-04-19
+*Last reviewed:* 2026-04-19
 
 This is the shortest useful path for working in Insight Tracker.
 
@@ -23,4 +23,7 @@ This is the shortest useful path for working in Insight Tracker.
 ## Current target
 - The active implementation slice is `PRODUCT-001`.
 - The canonical implementation path is the root repository tree.
-- Security, privacy, and human review are part of the product definition, not optional polish.
+- The current product direction is a hosted, authenticated, inbox-first capture and
+  review app for text plus several-minute audio.
+- Security, privacy, and human review are part of the product definition, not optional
+  polish.

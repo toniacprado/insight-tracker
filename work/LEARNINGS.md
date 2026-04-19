@@ -1,7 +1,7 @@
 # Durable Learnings
-*Version:* v0.3
-*Date:* 2026-04-18
-*Last reviewed:* 2026-04-18
+*Version:* v0.5
+*Date:* 2026-04-19
+*Last reviewed:* 2026-04-19
 
 Use this file for discoveries that should influence future work but do not fit neatly in
 a single task file.
@@ -14,7 +14,13 @@ a single task file.
   state separately and keep future changes in the main repository tree.
 
 ### 2026-04-18 - Fewer instruction layers work better here
-- Learning: the repo became harder to use when bootstrap guides, template maintenance
-  docs, prompt scaffolding, and product guidance all stayed first-class at once.
+- Learning: the repo became harder to use when legacy guides, maintenance docs,
+  prompt scaffolding, and product guidance all stayed first-class at once.
 - Follow-up: add new docs or policy layers only when the product has a concrete need
   for them.
+
+### 2026-04-19 - Inbox-first capture is lower friction than event-first capture
+- Learning: forcing users to create or choose an event before a quick capture adds
+  structure at the worst possible moment, when context is fresh and attention is thin.
+- Follow-up: default new captures into an inbox and layer grouping on later only if it
+  clearly improves review.

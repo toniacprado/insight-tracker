@@ -1,14 +1,14 @@
 # Active Tasks
-*Version:* v0.4
-*Date:* 2026-04-18
-*Last reviewed:* 2026-04-18
+*Version:* v0.5
+*Date:* 2026-04-19
+*Last reviewed:* 2026-04-19
 
 This file is the canonical current task list for the repo.
 
 ## Active
 | ID | Title | Status | Owner | Next action | Last updated |
 | --- | --- | --- | --- | --- | --- |
-| PRODUCT-001 | Build the core capture-to-review flow | todo | codex | Scaffold the secure root-tree TypeScript app shell and implement event creation plus one text capture happy path. | 2026-04-18 |
+| PRODUCT-001 | Build the core capture-to-review flow | todo | codex | Scaffold the hosted TypeScript app shell with magic-link auth, inbox capture, and one text-capture review happy path. | 2026-04-19 |
 
 ## Recently Completed
 | ID | Title | Status | Owner | Next action | Last updated |
