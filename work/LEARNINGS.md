@@ -1,5 +1,5 @@
 # Durable Learnings
-*Version:* v0.5
+*Version:* v0.6
 *Date:* 2026-04-19
 *Last reviewed:* 2026-04-19
 
@@ -24,3 +24,10 @@ a single task file.
   structure at the worst possible moment, when context is fresh and attention is thin.
 - Follow-up: default new captures into an inbox and layer grouping on later only if it
   clearly improves review.
+
+### 2026-04-19 - Hosted-ready boundaries can be proven with local development adapters
+- Learning: the fastest way to prove the inbox-review loop was to keep auth,
+  persistence, and processing behind explicit boundaries while using local development
+  adapters for the first working slice.
+- Follow-up: preserve those boundaries and replace the adapters, not the whole flow,
+  when real hosted providers are selected.

@@ -13,6 +13,12 @@ REQUIRED_PATHS = [
     "AGENTS.md",
     "CONTRIBUTING.md",
     "CHANGELOG.md",
+    "package.json",
+    "pnpm-lock.yaml",
+    "tsconfig.json",
+    "next.config.ts",
+    "next-env.d.ts",
+    "vitest.config.ts",
     "pyproject.toml",
     ".codex/README.md",
     ".codex/config.toml",
@@ -41,6 +47,11 @@ REQUIRED_PATHS = [
     "scripts/README.md",
     "scripts/check_repo.py",
     "src/README.md",
+    "src/app/layout.tsx",
+    "src/app/page.tsx",
+    "src/app/actions.ts",
+    "src/components/processing-poller.tsx",
+    "src/lib/types.ts",
     "src/insight_tracker_repo/__init__.py",
     "tests/test_repo_contract.py",
 ]
@@ -135,8 +146,10 @@ def run_repo_checks(repo_root: Path) -> list[CheckResult]:
     results.append(
         CheckResult(
             name="product-001-active",
-            passed="| PRODUCT-001 |" in active_tasks and "| todo |" in active_tasks,
-            detail="expected PRODUCT-001 to remain the active implementation task",
+            passed="| PRODUCT-001 |" in active_tasks and (
+                "| todo |" in active_tasks or "| in_progress |" in active_tasks
+            ),
+            detail="expected PRODUCT-001 to remain the active implementation task in todo or in_progress status",
         )
     )
 

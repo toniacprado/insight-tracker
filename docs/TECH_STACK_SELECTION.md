@@ -1,5 +1,5 @@
 # Tech Stack Selection
-*Version:* v0.4
+*Version:* v0.5
 *Date:* 2026-04-19
 *Last reviewed:* 2026-04-19
 
@@ -28,6 +28,8 @@ This file records the current stack direction for Insight Tracker.
   infrastructure
 - AI processing boundary: a typed processing adapter that starts mocked and can later
   call a real provider without changing the user-facing review flow
+- Development adapters: local magic-link preview and file-backed runtime state until
+  the first hosted providers are chosen
 - Media handling: text first, then several-minute audio upload and processing; photo
   input stays deferred
 - Package manager and build: `pnpm` plus the standard Next.js build pipeline
@@ -60,4 +62,4 @@ This file records the current stack direction for Insight Tracker.
 
 ## Next Decision
 - Choose the first hosted auth, database, and private object-storage providers for
-  `PRODUCT-001`.
+  `PRODUCT-001`, then replace the development adapters without changing the user flow.

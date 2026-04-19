@@ -1,7 +1,7 @@
 # Repo Structure
-*Version:* v1.0  
-*Date:* 2026-04-18  
-*Last reviewed:* 2026-04-18
+*Version:* v1.1  
+*Date:* 2026-04-19  
+*Last reviewed:* 2026-04-19
 
 Insight Tracker keeps a small number of first-class directories on purpose.
 
@@ -22,12 +22,14 @@ repo/
 ## Boundary guide
 - `docs/` holds product intent, engineering rules, security policy, and repo workflow.
 - `work/` holds active tasks, detailed work items, and durable learnings.
-- `src/` holds implementation code.
+- `src/` holds implementation code. The current app lives under `src/app/`,
+  `src/components/`, and `src/lib/`.
 - `tests/` holds deterministic verification.
 - `scripts/` holds small repo utilities such as health checks.
 - `.codex/` holds shared Codex configuration.
 - `.agents/skills/` holds optional repeatable Codex workflows.
-- `runtime/` holds rebuildable outputs only.
+- `runtime/` holds rebuildable outputs only, including the current development-backed
+  app state file.
 
 ## Practical rules
 - If the information should survive the current chat, put it in `docs/` or `work/`.

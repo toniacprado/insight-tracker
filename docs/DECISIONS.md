@@ -133,3 +133,16 @@ Use this file to record meaningful product, architecture, or workflow decisions.
 - Consequences: the app must own its operational data model and storage, while archive
   connectors stay optional and explicit.
 - Revisit when: the core capture-review flow is stable and export pressure becomes real.
+
+### 2026-04-19 - The first working app slice uses development adapters behind hosted-ready boundaries
+- Decision: implement the first working text capture slice with a development magic-link
+  preview and a file-backed runtime state store, while keeping auth, persistence, and
+  processing behind explicit interfaces.
+- Why: this proves the real inbox-to-review behavior now without forcing a premature
+  commitment to external hosted providers.
+- Alternatives considered: blocking implementation until provider selection was final,
+  or wiring providers directly into the first slice without local fallback boundaries.
+- Consequences: the repo now has a working app shell, but the auth and persistence
+  adapters remain development-only and must be replaced before claiming production
+  readiness.
+- Revisit when: the first hosted auth, database, and storage providers are selected.

@@ -2,10 +2,10 @@
 type: work_item
 item_id: PRODUCT-001
 title: Build the core capture-to-review flow
-status: todo
+status: in_progress
 owner: codex
 updated: 2026-04-19
-next_action: Scaffold the hosted TypeScript web app shell with magic-link auth, inbox capture, and one text-capture review happy path.
+next_action: Replace the development auth and file-backed persistence adapters with the first real hosted provider set, then add audio upload to the same review loop.
 blocked_on: none
 ---
 
@@ -43,16 +43,19 @@ blocked_on: none
 - 2026-04-19: product direction shifted from event-first local prototyping to a hosted,
   inbox-first personal app with async processing, retained transcripts, and optional
   later grouping.
+- 2026-04-19: scaffolded a working Next.js text flow with development magic-link
+  preview, file-backed runtime state, async processing status, and review confirmation.
 
 ## Verification
-- Planned unit or integration checks: `pnpm test`
-- Planned end-to-end check: `pnpm exec playwright test`
-- Planned manual check: complete the happy path on a mobile-width viewport and confirm
+- Completed unit or integration checks: `pnpm test`, `pnpm check`, `pnpm build`
+- Completed repo checks: `python3 scripts/check_repo.py`, `python3 -m py_compile scripts/check_repo.py tests/test_repo_contract.py src/insight_tracker_repo/__init__.py`
+- Pending end-to-end check: `pnpm exec playwright test`
+- Pending manual check: complete the happy path on a mobile-width viewport and confirm
   that raw and reviewed records are both persisted
 
 ## Next Action
-- Scaffold the hosted app shell, auth boundary, persistence schema, and happy-path UI
-  for inbox capture plus one text review flow.
+- Replace the development auth and file-backed persistence adapters with the first real
+  hosted provider set, then keep the same review flow as audio upload is added.
 
 ## Notes
 - Audio upload is part of v1 direction, but the first implementation slice should prove
@@ -61,3 +64,5 @@ blocked_on: none
   usable without that structure.
 - Google Drive archive stays manual and should not be put on the operational hot path
   for this slice.
+- The current app shell is intentionally not production-ready because auth delivery and
+  persistence still rely on development adapters under explicit interfaces.
