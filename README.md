@@ -16,7 +16,7 @@ capture but hard to turn into trustworthy follow-through.
 The next implementation slice is [`PRODUCT-001`](/Users/toniacprado/Dev/insight-tracker/work/items/PRODUCT-001-core-capture-review-flow.md):
 
 1. Keep the hosted TypeScript app shell and text review loop working as the canonical root implementation.
-2. Replace the development magic-link preview and in-memory runtime store with the first real hosted auth, database, and storage providers.
+2. Wire the selected Vercel plus Supabase provider set for hosted auth, database, private storage, and production environment configuration.
 3. Add audio upload and processing after the text path is stable on the real provider set.
 4. Keep raw captures private and auditable, with manual archive still explicit rather than automatic.
 

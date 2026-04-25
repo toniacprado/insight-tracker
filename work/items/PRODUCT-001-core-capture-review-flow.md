@@ -5,7 +5,7 @@ title: Build the core capture-to-review flow
 status: in_progress
 owner: codex
 updated: 2026-04-25
-next_action: Choose the first hosted provider set, replace development auth and in-memory persistence behind the existing boundaries, then add audio upload once the text path passes hosted verification.
+next_action: Wire Supabase Auth, Postgres, and private Storage behind the existing boundaries, then deploy through Vercel env configuration before adding audio upload.
 blocked_on: none
 ---
 
@@ -54,6 +54,8 @@ blocked_on: none
   moving processing advancement from page render to an authenticated route used by the
   poller, and replacing the file-backed development store with in-memory state so
   production builds no longer trace the runtime state directory.
+- 2026-04-25: selected the first hosted provider set: Vercel for the Next.js host and
+  Supabase for magic-link auth, Postgres persistence, and private object storage.
 
 ## Verification
 - Completed unit or integration checks on 2026-04-25: `pnpm test`, `pnpm check`,
@@ -70,11 +72,13 @@ blocked_on: none
   that raw and reviewed records are both persisted
 
 ## Next Action
-- Choose the first hosted auth, database, and private object-storage providers.
+- Add Supabase environment variables and server/client boundaries.
+- Create the first schema migration for captures, processing state, suggestions, and
+  reviews with RLS policies scoped to the signed-in user.
 - Replace the development magic-link preview and in-memory state without changing the
   existing text capture and review flow.
-- Add audio upload only after the text path passes hosted verification and the
-  hosted provider boundary is in place.
+- Add private `raw-captures` storage and audio upload only after the hosted text path
+  passes verification.
 
 ## Notes
 - Audio upload is part of v1 direction, but the first implementation slice should prove

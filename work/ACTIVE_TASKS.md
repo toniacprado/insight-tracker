@@ -1,5 +1,5 @@
 # Active Tasks
-*Version:* v0.8
+*Version:* v0.9
 *Date:* 2026-04-25
 *Last reviewed:* 2026-04-25
 
@@ -8,7 +8,7 @@ This file is the canonical current task list for the repo.
 ## Active
 | ID | Title | Status | Owner | Next action | Last updated |
 | --- | --- | --- | --- | --- | --- |
-| PRODUCT-001 | Build the core capture-to-review flow | in_progress | codex | Choose the first hosted provider set, replace development auth and in-memory persistence behind the existing boundaries, then add audio upload once the text path passes hosted verification. | 2026-04-25 |
+| PRODUCT-001 | Build the core capture-to-review flow | in_progress | codex | Wire Supabase Auth, Postgres, and private Storage behind the existing boundaries, then deploy through Vercel env configuration before adding audio upload. | 2026-04-25 |
 
 ## Recently Completed
 | ID | Title | Status | Owner | Next action | Last updated |

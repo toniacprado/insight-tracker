@@ -1,5 +1,5 @@
 # Tech Stack Selection
-*Version:* v0.6
+*Version:* v0.7
 *Date:* 2026-04-25
 *Last reviewed:* 2026-04-25
 
@@ -18,14 +18,15 @@ This file records the current stack direction for Insight Tracker.
 - App framework: React with Next.js in a single TypeScript codebase
 - Server/runtime: Node.js using Next.js route handlers or server actions for the first
   iteration
-- Auth: magic-link email sign-in with a small provider boundary that can be swapped if
-  needed
-- Persistence: a hosted relational database for captures, transcripts, suggestions,
-  reviewed outputs, and optional later event or session links
-- Raw file storage: private object storage for uploaded audio, with manual archive or
-  export handled separately from the operational store
-- Background work: database-backed async job processing before adding separate queue
-  infrastructure
+- Host: Vercel for the managed Next.js deployment, environment variables, and later
+  scheduled route invocations if needed
+- Auth: Supabase Auth magic-link email sign-in behind the existing auth boundary
+- Persistence: Supabase Postgres for captures, transcripts, suggestions, reviewed
+  outputs, and optional later event or session links
+- Raw file storage: Supabase Storage private bucket for uploaded audio, with manual
+  archive or export handled separately from the operational store
+- Background work: database-backed processing state first; evaluate Supabase Queues,
+  Supabase Cron, or Vercel Cron only after the hosted text path is stable
 - AI processing boundary: a typed processing adapter that starts mocked and can later
   call a real provider without changing the user-facing review flow
 - Development adapters: local magic-link preview and in-memory runtime state until the
@@ -61,5 +62,6 @@ This file records the current stack direction for Insight Tracker.
 - Move day-to-day product verification to `pnpm` once the app exists.
 
 ## Next Decision
-- Choose the first hosted auth, database, and private object-storage providers for
-  `PRODUCT-001`, then replace the development adapters without changing the user flow.
+- Wire Supabase Auth, Postgres, and private Storage behind the existing development
+  boundaries, deploy through Vercel environment configuration, and keep the user flow
+  unchanged while replacing the in-memory store.

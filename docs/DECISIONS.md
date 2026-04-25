@@ -1,5 +1,5 @@
 # Decisions Log
-*Version:* v0.6
+*Version:* v0.7
 *Date:* 2026-04-25
 *Last reviewed:* 2026-04-25
 
@@ -159,3 +159,19 @@ Use this file to record meaningful product, architecture, or workflow decisions.
   persistence must not be considered proven until the hosted database adapter lands.
 - Revisit when: the first hosted persistence provider is selected and wired behind the
   store boundary.
+
+### 2026-04-25 - First hosted provider set is Vercel plus Supabase
+- Decision: use Vercel for the managed Next.js host and Supabase for Auth, Postgres,
+  and private Storage in the first hosted `PRODUCT-001` implementation.
+- Why: Supabase covers the three provider needs already identified for the next slice:
+  magic-link email auth, relational persistence with row-level security, and private
+  object storage with access policies. Vercel keeps the Next.js deployment path simple
+  and provides production environment variable management.
+- Alternatives considered: separate best-of-breed providers for auth, database, and
+  object storage; Vercel marketplace Postgres plus Vercel Blob; or staying local until
+  audio upload.
+- Consequences: the next code slice should add Supabase client/server boundaries,
+  schema migrations, RLS policies, private `raw-captures` storage, and Vercel env
+  setup notes before claiming hosted durability.
+- Revisit when: Supabase limits, regional requirements, or background processing needs
+  become the bottleneck for the capture-to-review flow.
