@@ -4,8 +4,8 @@ item_id: PRODUCT-001
 title: Build the core capture-to-review flow
 status: in_progress
 owner: codex
-updated: 2026-04-19
-next_action: Replace the development auth and file-backed persistence adapters with the first real hosted provider set, then add audio upload to the same review loop.
+updated: 2026-04-25
+next_action: Choose the first hosted provider set, replace development auth and in-memory persistence behind the existing boundaries, then add audio upload once the text path passes hosted verification.
 blocked_on: none
 ---
 
@@ -45,17 +45,36 @@ blocked_on: none
   later grouping.
 - 2026-04-19: scaffolded a working Next.js text flow with development magic-link
   preview, file-backed runtime state, async processing status, and review confirmation.
+- 2026-04-25: reviewed the repo and confirmed the current plan still points at the
+  right next slice: replace development adapters with hosted auth, relational
+  persistence, and private storage before audio upload. The app and repo checks pass,
+  but the production build emits a Turbopack NFT tracing warning from the development
+  file-backed store that should be removed as part of the provider replacement.
+- 2026-04-25: fixed the review findings by adding expiring development magic links,
+  moving processing advancement from page render to an authenticated route used by the
+  poller, and replacing the file-backed development store with in-memory state so
+  production builds no longer trace the runtime state directory.
 
 ## Verification
-- Completed unit or integration checks: `pnpm test`, `pnpm check`, `pnpm build`
-- Completed repo checks: `python3 scripts/check_repo.py`, `python3 -m py_compile scripts/check_repo.py tests/test_repo_contract.py src/insight_tracker_repo/__init__.py`
+- Completed unit or integration checks on 2026-04-25: `pnpm test`, `pnpm check`,
+  `pnpm build`
+- Completed repo checks on 2026-04-25: `python3 scripts/check_repo.py`,
+  `python3 -m py_compile scripts/check_repo.py tests/test_repo_contract.py src/insight_tracker_repo/__init__.py`
+- Completed Python checks on 2026-04-25 after installing local `.venv` dev tooling:
+  `.venv/bin/python -m pytest -q`, `.venv/bin/python -m ruff format . --check`, and
+  `.venv/bin/python -m ruff check .`
+- Resolved build warning on 2026-04-25: `pnpm build` passes without the Turbopack NFT
+  trace after removing the file-backed development store from production imports.
 - Pending end-to-end check: `pnpm exec playwright test`
 - Pending manual check: complete the happy path on a mobile-width viewport and confirm
   that raw and reviewed records are both persisted
 
 ## Next Action
-- Replace the development auth and file-backed persistence adapters with the first real
-  hosted provider set, then keep the same review flow as audio upload is added.
+- Choose the first hosted auth, database, and private object-storage providers.
+- Replace the development magic-link preview and in-memory state without changing the
+  existing text capture and review flow.
+- Add audio upload only after the text path passes hosted verification and the
+  hosted provider boundary is in place.
 
 ## Notes
 - Audio upload is part of v1 direction, but the first implementation slice should prove
@@ -66,3 +85,5 @@ blocked_on: none
   for this slice.
 - The current app shell is intentionally not production-ready because auth delivery and
   persistence still rely on development adapters under explicit interfaces.
+- Local development state is currently in-memory and resets with the server process;
+  durability is intentionally deferred to the hosted persistence adapter.

@@ -1,7 +1,7 @@
 # Decisions Log
-*Version:* v0.5
-*Date:* 2026-04-19
-*Last reviewed:* 2026-04-19
+*Version:* v0.6
+*Date:* 2026-04-25
+*Last reviewed:* 2026-04-25
 
 Use this file to record meaningful product, architecture, or workflow decisions.
 
@@ -146,3 +146,16 @@ Use this file to record meaningful product, architecture, or workflow decisions.
   adapters remain development-only and must be replaced before claiming production
   readiness.
 - Revisit when: the first hosted auth, database, and storage providers are selected.
+
+### 2026-04-25 - Development state stays in memory until hosted persistence replaces it
+- Decision: keep the current development store in memory rather than writing app state
+  under `runtime/` during production builds.
+- Why: the file-backed development store caused Turbopack to trace the whole project
+  during production builds, and the next planned slice replaces development
+  persistence with a hosted relational store anyway.
+- Alternatives considered: keeping the file store and suppressing the build trace, or
+  splitting a second file-backed adapter behind dynamic production imports.
+- Consequences: local development state is reset when the server process restarts, so
+  persistence must not be considered proven until the hosted database adapter lands.
+- Revisit when: the first hosted persistence provider is selected and wired behind the
+  store boundary.

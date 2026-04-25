@@ -146,10 +146,12 @@ def run_repo_checks(repo_root: Path) -> list[CheckResult]:
     results.append(
         CheckResult(
             name="product-001-active",
-            passed="| PRODUCT-001 |" in active_tasks and (
-                "| todo |" in active_tasks or "| in_progress |" in active_tasks
+            passed="| PRODUCT-001 |" in active_tasks
+            and ("| todo |" in active_tasks or "| in_progress |" in active_tasks),
+            detail=(
+                "expected PRODUCT-001 to remain the active implementation task in todo "
+                "or in_progress status"
             ),
-            detail="expected PRODUCT-001 to remain the active implementation task in todo or in_progress status",
         )
     )
 

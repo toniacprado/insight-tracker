@@ -1,7 +1,7 @@
 import { requestMagicLinkAction, createCaptureAction, saveReviewAction, signOutAction } from "@/app/actions";
 import { ProcessingPoller } from "@/components/processing-poller";
 import { getCurrentSession } from "@/lib/server/auth";
-import { listPendingMagicLinks, listCapturesForUser, processPendingCaptures } from "@/lib/server/store";
+import { listPendingMagicLinks, listCapturesForUser } from "@/lib/server/store";
 import type { CaptureRecord } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
@@ -35,8 +35,6 @@ function reviewFollowUps(capture: CaptureRecord): string {
 }
 
 export default async function HomePage() {
-  await processPendingCaptures();
-
   const session = await getCurrentSession();
 
   if (!session) {

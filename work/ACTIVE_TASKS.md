@@ -1,14 +1,14 @@
 # Active Tasks
-*Version:* v0.6
-*Date:* 2026-04-19
-*Last reviewed:* 2026-04-19
+*Version:* v0.8
+*Date:* 2026-04-25
+*Last reviewed:* 2026-04-25
 
 This file is the canonical current task list for the repo.
 
 ## Active
 | ID | Title | Status | Owner | Next action | Last updated |
 | --- | --- | --- | --- | --- | --- |
-| PRODUCT-001 | Build the core capture-to-review flow | in_progress | codex | Replace the development auth and file-backed persistence adapters with the first real hosted provider set, then add audio upload to the same review loop. | 2026-04-19 |
+| PRODUCT-001 | Build the core capture-to-review flow | in_progress | codex | Choose the first hosted provider set, replace development auth and in-memory persistence behind the existing boundaries, then add audio upload once the text path passes hosted verification. | 2026-04-25 |
 
 ## Recently Completed
 | ID | Title | Status | Owner | Next action | Last updated |

@@ -12,7 +12,9 @@ export function ProcessingPoller({ active }: { active: boolean }) {
     }
 
     const timer = window.setTimeout(() => {
-      router.refresh();
+      void fetch("/api/process-pending", { method: "POST" }).finally(() => {
+        router.refresh();
+      });
     }, 1800);
 
     return () => {
