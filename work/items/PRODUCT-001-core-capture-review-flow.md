@@ -56,6 +56,9 @@ blocked_on: none
   production builds no longer trace the runtime state directory.
 - 2026-04-25: selected the first hosted provider set: Vercel for the Next.js host and
   Supabase for magic-link auth, Postgres persistence, and private object storage.
+- 2026-04-25: confirmed Vercel Marketplace provisioned Supabase environment variables,
+  including `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, and
+  `SUPABASE_SERVICE_ROLE_KEY`. The repo env example now follows those names.
 
 ## Verification
 - Completed unit or integration checks on 2026-04-25: `pnpm test`, `pnpm check`,
