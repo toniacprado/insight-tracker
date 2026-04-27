@@ -59,6 +59,9 @@ blocked_on: none
 - 2026-04-25: confirmed Vercel Marketplace provisioned Supabase environment variables,
   including `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, and
   `SUPABASE_SERVICE_ROLE_KEY`. The repo env example now follows those names.
+- 2026-04-27: audited tracked files for committed secret values. No exposed secret
+  values were found, and the deployed app now disables the development magic-link
+  preview unless explicitly overridden for temporary previews.
 
 ## Verification
 - Completed unit or integration checks on 2026-04-25: `pnpm test`, `pnpm check`,

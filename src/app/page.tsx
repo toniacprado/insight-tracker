@@ -1,6 +1,6 @@
 import { requestMagicLinkAction, createCaptureAction, saveReviewAction, signOutAction } from "@/app/actions";
 import { ProcessingPoller } from "@/components/processing-poller";
-import { getCurrentSession } from "@/lib/server/auth";
+import { getCurrentSession, isDevelopmentAuthEnabled } from "@/lib/server/auth";
 import { listPendingMagicLinks, listCapturesForUser } from "@/lib/server/store";
 import type { CaptureRecord } from "@/lib/types";
 
@@ -38,6 +38,33 @@ export default async function HomePage() {
   const session = await getCurrentSession();
 
   if (!session) {
+    const developmentAuthEnabled = isDevelopmentAuthEnabled();
+
+    if (!developmentAuthEnabled) {
+      return (
+        <main className="shell shell-auth">
+          <section className="hero hero-auth">
+            <p className="eyebrow">Insight Tracker</p>
+            <h1>Hosted auth setup is in progress.</h1>
+            <p className="lede">
+              The deployed app is connected to the hosted shell, and sign-in will reopen after the
+              Supabase auth boundary replaces the development magic-link preview.
+            </p>
+          </section>
+
+          <section className="card auth-card">
+            <div className="card-head">
+              <h2>Sign-in unavailable</h2>
+              <p>
+                Development sign-in links are disabled outside local development so private captures
+                are not exposed through preview-only authentication.
+              </p>
+            </div>
+          </section>
+        </main>
+      );
+    }
+
     const pendingLinks = await listPendingMagicLinks();
 
     return (
